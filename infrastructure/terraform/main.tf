@@ -24,6 +24,7 @@ provider "cloudflare" {
 resource "google_project_service" "this" {
   for_each = toset([
     "compute.googleapis.com",
+    "cloudresourcemanager.googleapis.com"
   ])
 
   service = each.key
