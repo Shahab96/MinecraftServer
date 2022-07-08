@@ -9,6 +9,10 @@ resource "google_compute_instance" "this" {
   allow_stopping_for_update = true
   tags = ["minecraft"]
 
+  metadata = {
+    ssh-keys = "shahab96:${file("~/.ssh/id_rsa.pub")}"
+  }
+
   advanced_machine_features {
     threads_per_core = 1
   }
