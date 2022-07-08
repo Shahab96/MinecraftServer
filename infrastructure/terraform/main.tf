@@ -22,7 +22,7 @@ provider "cloudflare" {
 }
 
 resource "google_project_service" "this" {
-  foreach = toset([
+  for_each = toset([
     "compute.googleapis.com",
   ])
 
