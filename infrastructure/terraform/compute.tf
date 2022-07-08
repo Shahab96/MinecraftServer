@@ -13,6 +13,7 @@ resource "google_compute_instance" "this" {
     
     access_config {
       # Added only to ensure a network interface is created.
+      network_tier = "STANDARD"
     }
   }
 
