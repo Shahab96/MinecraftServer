@@ -19,3 +19,9 @@ variable "region" {
   description = "The region in GCP to deploy to"
   default = "us-west1"
 }
+
+variable "gcp_zone" {
+  type = string
+  description = "The zone in GCP to deploy to"
+  default = "us-west1-a"
+}
