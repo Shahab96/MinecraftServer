@@ -29,12 +29,12 @@ resource "google_compute_instance" "this" {
 }
 
 resource "google_compute_firewall" "this" {
-  name = "default-allow-minecraft"
+  name = "minecraft-firewall-rules"
   network = "default"
 
   allow {
     protocol = "tcp"
-    ports = ["25565"]
+    ports = ["22", "25565"]
   }
 
   source_ranges = ["0.0.0.0/0"]
