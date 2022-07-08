@@ -9,6 +9,10 @@ resource "google_compute_instance" "this" {
   allow_stopping_for_update = true
   tags = ["minecraft"]
 
+  labels = {
+    "env" = "minecraft"
+  }
+
   metadata = {
     ssh-keys = "shahab96:${file("../../id_rsa.pub")}"
   }
@@ -45,4 +49,31 @@ resource "google_compute_firewall" "this" {
 
   source_ranges = ["0.0.0.0/0"]
   target_tags = ["minecraft"]
+}
+
+module "agent_policy" {
+  source     = "terraform-google-modules/cloud-operations/google//modules/agent-policy"
+  version    = "~> 0.1.0"
+
+  project_id = var.project
+  policy_id  = "ops-agents"
+  agent_rules = [
+    {
+      type               = "ops-agent"
+      version            = "current-major"
+      package_state      = "installed"
+      enable_autoupgrade = true
+    },
+  ]
+  group_labels = [
+    {
+      env = "minecraft"
+    }
+  ]
+  os_types = [
+    {
+      short_name = "ubuntu"
+      version    = "2204-lts"
+    }
+  ]
 }
