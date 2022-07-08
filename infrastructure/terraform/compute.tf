@@ -19,12 +19,8 @@ resource "google_compute_instance" "this" {
   boot_disk {
     initialize_params {
       image = "ubuntu-os-cloud/ubuntu-1804-lts"
-      size = 10
+      size = 20
     }
-  }
-
-  scratch_disk {
-    interface = "SCSI"
   }
 }
 
