@@ -1,3 +1,8 @@
+resource "google_compute_address" "this" {
+  name = "public-ip-address"
+  network_tier = "STANDARD"
+}
+
 resource "google_compute_instance" "this" {
   name = "minecraft-server"
   machine_type = "n1-standard-2"
@@ -12,14 +17,14 @@ resource "google_compute_instance" "this" {
     network = "default"
     
     access_config {
-      # Added only to ensure a network interface is created.
       network_tier = "STANDARD"
+      nat_ip = google_compute_address.this.address
     }
   }
 
   boot_disk {
     initialize_params {
-      image = "ubuntu-os-cloud/ubuntu-1804-lts"
+      image = "ubuntu-os-cloud/ubuntu-2204-lts"
       size = 20
     }
   }
