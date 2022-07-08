@@ -20,5 +20,3 @@ provider "google" {
 provider "cloudflare" {
   alias = "cloudflare"
 }
-
-data "google_client_openid_userinfo" "me" {}
