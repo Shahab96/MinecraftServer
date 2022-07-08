@@ -56,7 +56,7 @@ module "agent_policy" {
   version    = "~> 0.1.0"
 
   project_id = var.project
-  policy_id  = "ops-agents"
+  policy_id  = "ops-agent"
   agent_rules = [
     {
       type               = "ops-agent"
@@ -73,7 +73,6 @@ module "agent_policy" {
   os_types = [
     {
       short_name = "ubuntu"
-      version    = "2204-lts"
     }
   ]
 }
