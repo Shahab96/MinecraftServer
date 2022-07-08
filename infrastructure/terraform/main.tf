@@ -20,3 +20,14 @@ provider "google" {
 provider "cloudflare" {
   alias = "cloudflare"
 }
+
+resource "google_project_service" "this" {
+  foreach = toset([
+    "compute.googleapis.com",
+  ])
+
+  service = each.key
+
+  project = var.project
+  disable_on_destroy = false
+}
