@@ -4,6 +4,10 @@ resource "google_compute_instance" "this" {
   allow_stopping_for_update = true
   tags = ["minecraft"]
 
+  metadata = {
+    "key" = "value"
+  }
+
   advanced_machine_features {
     threads_per_core = 1
   }
@@ -31,7 +35,7 @@ resource "google_compute_firewall" "this" {
 
   allow {
     protocol = "tcp"
-    ports = ["22", "25565"]
+    ports = ["25565"]
   }
 
   source_ranges = ["0.0.0.0/0"]
