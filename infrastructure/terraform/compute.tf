@@ -52,10 +52,6 @@ resource "google_compute_firewall" "this" {
 }
 
 module "agent_policy" {
-  depends_on = [
-    google_project_service.this
-  ]
-
   source     = "terraform-google-modules/cloud-operations/google//modules/agent-policy"
   version    = "~> 0.1.0"
 
