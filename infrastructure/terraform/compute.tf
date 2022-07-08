@@ -10,7 +10,7 @@ resource "google_compute_instance" "this" {
   tags = ["minecraft"]
 
   metadata = {
-    ssh-keys = "shahab96:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "shahab96:${file("../../id_rsa.pub")}"
   }
 
   advanced_machine_features {
