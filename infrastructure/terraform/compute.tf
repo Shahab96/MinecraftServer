@@ -4,10 +4,6 @@ resource "google_compute_instance" "this" {
   allow_stopping_for_update = true
   tags = ["minecraft"]
 
-  metadata = {
-    "key" = "value"
-  }
-
   advanced_machine_features {
     threads_per_core = 1
   }
