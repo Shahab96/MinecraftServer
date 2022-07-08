@@ -37,3 +37,8 @@ resource "google_compute_firewall" "this" {
   source_ranges = ["0.0.0.0/0"]
   target_tags = ["minecraft"]
 }
+
+resource "google_os_login_ssh_public_key" "this" {
+  user =  data.google_client_openid_userinfo.me.email
+  key = file("../../id_rsa.pub")
+}
