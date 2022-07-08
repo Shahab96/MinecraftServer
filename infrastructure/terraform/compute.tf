@@ -53,7 +53,7 @@ resource "google_compute_firewall" "this" {
 
 module "agent_policy" {
   source     = "terraform-google-modules/cloud-operations/google//modules/agent-policy"
-  version    = "~> 0.1.0"
+  version    = "0.2.3"
 
   project_id = var.project
   policy_id  = "ops-agent"
