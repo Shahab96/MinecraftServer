@@ -5,5 +5,5 @@ resource "cloudflare_record" "this" {
   name = "atm6.shahab96.com"
   value = linode_instance.this.ip_address
   type = "A"
-  ttl = 3600
+  ttl = 60
 }

@@ -4,6 +4,7 @@ resource "linode_sshkey" "this" {
 }
 
 resource "linode_instance" "this" {
+  label = "ATM6"
   image = "linode/ubuntu22.04"
   region = "us-east"
   type = "g7-highmem-1"
