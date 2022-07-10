@@ -22,5 +22,8 @@ resource "linode_firewall" "this" {
     ipv4 = [ "0.0.0.0/0" ]
   }
 
+  inbound_policy = "DROP"
+  outbound_policy = "ACCEPT"
+
   linodes = [ linode_instance.this.id ]
 }
