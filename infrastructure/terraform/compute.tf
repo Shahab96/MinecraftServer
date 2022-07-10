@@ -16,6 +16,7 @@ resource "linode_firewall" "this" {
   label = "ATM6"
 
   inbound {
+    label = "Minecraft"
     action = "ACCEPT"
     protocol = "TCP"
     ports = "25565"
