@@ -1,5 +1,5 @@
 resource "linode_sshkey" "this" {
-  label = "SSH Public Key"
+  label = "ATM6"
   ssh_key = chomp(file("../../id_rsa.pub"))
 }
 
@@ -10,4 +10,17 @@ resource "linode_instance" "this" {
   type = "g7-highmem-1"
   authorized_keys = [linode_sshkey.this.ssh_key]
   booted = true
+}
+
+resource "linode_firewall" "this" {
+  label = "ATM6"
+
+  inbound {
+    action = "ACCEPT"
+    protocol = "TCP"
+    ports = "25565"
+    ipv4 = [ "0.0.0.0/0" ]
+  }
+
+  linodes = [ linode_instance.this.id ]
 }
