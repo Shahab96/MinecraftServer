@@ -1,4 +1,5 @@
 resource "linode_sshkey" "this" {
+  label = "SSH Public Key"
   ssh_key = chomp(file("../../id_rsa.pub"))
 }
 
