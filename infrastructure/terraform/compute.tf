@@ -23,6 +23,14 @@ resource "linode_firewall" "this" {
     ipv4 = [ "0.0.0.0/0" ]
   }
 
+  inbound {
+    label = "SSH"
+    action = "ACCEPT"
+    protocol = "TCP"
+    ports = "22"
+    ipv4 = [ "0.0.0.0/0" ]
+  }
+
   inbound_policy = "DROP"
   outbound_policy = "ACCEPT"
 
