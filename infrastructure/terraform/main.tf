@@ -22,7 +22,6 @@ provider "google" {
 }
 
 provider "cloudflare" {
-  alias = "cloudflare"
 }
 
 provider "linode" {}
