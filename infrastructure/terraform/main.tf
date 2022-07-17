@@ -26,9 +26,8 @@ provider "google" {
 
 resource "google_project_service" "dns" {
   service = "dns.googleapis.com"
+}
 
-  timeouts {
-    create = "30m"
-    update = "40m"
-  }
+resource "google_project_service" "domains" {
+  service = "domains.googleapis.com"
 }
