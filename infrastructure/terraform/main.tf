@@ -23,11 +23,3 @@ provider "google" {
   project = var.project
   region = "us-central1"
 }
-
-resource "google_project_service" "dns" {
-  service = "dns.googleapis.com"
-}
-
-resource "google_project_service" "domains" {
-  service = "domains.googleapis.com"
-}
