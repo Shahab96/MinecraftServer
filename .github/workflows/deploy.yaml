@@ -1,0 +1,23 @@
+name: deploy
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    env:
+      CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
+      CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
+      LINODE_TOKEN: ${{ secrets.LINODE_TOKEN }}
+      TF_VAR_zone_id: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Configure Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.2.4
+    - name: Deploy
+      run: terraform plan
