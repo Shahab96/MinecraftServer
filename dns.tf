@@ -15,7 +15,7 @@ resource "google_dns_record_set" "this" {
   type = "A"
   ttl  = 60
 
-  managed_zone = google_dns_managed_zone.this.name
+  managed_zone = data.google_dns_managed_zone.this.name
 
   rrdatas = [linode_instance.this.ip_address]
 }
