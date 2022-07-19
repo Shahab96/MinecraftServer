@@ -22,4 +22,4 @@ jobs:
     - name: Deploy
       run: |
         terraform init
-        terraform apply
+        terraform apply -input=false -auto-approve
