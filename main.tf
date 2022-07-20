@@ -9,20 +9,11 @@ terraform {
       source  = "hashicorp/google"
       version = "4.28.0"
     }
-    cloudflare = {
-      source  = "cloudflare/cloudflare"
-      version = "3.18.0"
-    }
     linode = {
       source  = "linode/linode"
       version = "1.28.0"
     }
   }
-}
-
-provider "cloudflare" {
-  email = "shahab96@gmail.com"
-  api_key = "48ae3084929093c94c0eac47a45456ff0bafc"
 }
 
 provider "linode" {
