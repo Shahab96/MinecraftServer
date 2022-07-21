@@ -16,9 +16,7 @@ terraform {
   }
 }
 
-provider "linode" {
-  token = "7aa605fcf3af06372df55920e500ce01ed7b4ac31014be4ce6180cde854c189f"
-}
+provider "linode" {}
 
 provider "google" {
   project = data.terraform_remote_state.infra.outputs.projects.dogar
